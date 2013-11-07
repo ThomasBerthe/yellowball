@@ -1,0 +1,26 @@
+# Tournois
+Home:
+    pattern:  /home
+    defaults: { _controller: YBTournamentBundle:Default:index }
+
+AddTournament:
+    pattern: /addtournament
+    defaults: { _controller: YBTournamentBundle:Default:addTournament }
+
+# Clubs
+Clubs:
+    pattern:  /clubs
+    defaults: { _controller: YBTournamentBundle:Club:index }
+
+AddClub:
+    pattern: /addclub
+    defaults: { _controller: YBTournamentBundle:Club:addClub }
+    
+# Juge Arbitres
+Umpires:
+    pattern:  /umpires
+    defaults: { _controller: YBTournamentBundle:Umpire:index }
+
+AddUmpire:
+    pattern: /addumpire
+    defaults: { _controller: YBTournamentBundle:Umpire:addUmpire }

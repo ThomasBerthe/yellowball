@@ -1,0 +1,15 @@
+{%extends "YBTournamentBundle::layout.html.twig" %}
+
+{%block body%}
+	<h2>Club list</h2>
+		{%for club in clubs%}
+			<div>
+				{{club.name}} <br />
+				{{club.address|default('-')}} <br />
+				{{club.zipCode|default('-')}} {{club.city|default('-')}}<br />
+				{{club.phone}}
+			</div>
+		{%else%}
+			<div>No clubs !</div>
+		{%endfor%}
+{%endblock%}

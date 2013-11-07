@@ -1,0 +1,39 @@
+{%extends "YBTournamentBundle::layout.html.twig" %}
+
+{%block body%}
+	<h2>Liste des tournois <a class="btn btn-primary" href="{{path('AddTournament')}}">Ajouter un tournoi</a></h2>
+	
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+				<th>Nom</th>
+				<th>Dates</th>
+				<th>Epreuves</th>
+				<th>Juge arbitre</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for tournament in tournaments%}
+				<tr>
+					<td>
+						<a title="edit" href=""><i class="icon-edit"></i></a>
+						<a title="delete" href=""><i class="icon-trash"></i></a>
+					</td>
+					<td>{{tournament.club.name}}</td>
+					<td>{{tournament.beginDate|date('d/m/Y') }} au {{tournament.endDate|date('d/m/Y') }}</td>
+					<td>
+						{%for tournamentEvent in tournament.tournamentEvents%}
+							{{tournamentEvent.type}} {{tournamentEvent.category}} {{tournamentEvent.levelFrom}} à {{tournamentEvent.levelTo}}<br />
+						{%endfor%}
+					</td>
+					<td>{{tournament.umpire.lastname|upper}} {{tournament.umpire.firstname}}</td>
+				</tr>
+			{%else%}
+				<tr>
+					<td colspan=6 class="center">Pas de tournois !</td>
+				</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+{%endblock%}

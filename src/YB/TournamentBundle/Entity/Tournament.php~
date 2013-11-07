@@ -1,0 +1,75 @@
+<?php
+
+namespace YB\TournamentBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tournament
+ *
+ * @ORM\Table(name="tournament")
+ * @ORM\Entity(repositoryClass="YB\TournamentBundle\Entity\Repository\TournamentRepository")
+ */
+class Tournament
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+	
+	/**
+     * @var YB\TournamentBundle\Entity\Club
+	 * 
+     * @ORM\ManyToOne(targetEntity="YB\TournamentBundle\Entity\Club", inversedBy="tournaments", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $club;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="begin_date", type="date")
+     */
+    private $beginDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="date")
+     */
+    private $endDate;
+	
+	/**
+     * @var YB\TournamentBundle\Entity\Umpire
+	 * 
+     * @ORM\ManyToOne(targetEntity="YB\TournamentBundle\Entity\Umpire", inversedBy="tournaments", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true)
+     */
+    private $umpire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prizes", type="text")
+     */
+    private $prizes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="payment_information", type="text")
+     */
+    private $paymentInformation;
+	
+	/**
+     * @var ArrayCollection $tournamentEvents
+     *
+     * @ORM\OneToMany(targetEntity="YB\TournamentBundle\Entity\TournamentEvent", mappedBy="tournament", cascade={"all"})
+     */
+    private $tournamentEvents;
+
+}

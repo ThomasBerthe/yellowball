@@ -1,0 +1,4 @@
+yb_tournament:
+    resource: "@YBTournamentBundle/Resources/config/routing.yml"
+    prefix:   /
+

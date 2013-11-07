@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}YellowBall | {% endblock %}</title>
+        {% block stylesheets %}
+			<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css">
+		{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+		
+		{% block javascripts %}
+			<script src="http://code.jquery.com/jquery-latest.js"></script>
+			<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+		{% endblock %}
+    </head>
+    <body>
+		<div class="container">
+			{# Header #}
+			<div id="header" class="hero-unit">
+				<h1>Yellow Ball</h1>
+				<p>Trouver un tournoi près de chez vous</p>
+			</div>
+				
+			{# Body #}
+			<div class="row">
+				<div id="content" class="span12">
+					 {% block body %}{% endblock %}
+				</div>
+			</div>
+				
+			{# Footer #}
+			<hr>	
+			<footer>
+				Tom Corporation&copy;
+			</footer>
+		</div>
+    </body>
+</html>

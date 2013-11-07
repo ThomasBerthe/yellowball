@@ -1,0 +1,18 @@
+{%extends "YBTournamentBundle::layout.html.twig" %}
+
+{%block body%}
+	<h2>Umpire list</h2>
+		{%for umpire in umpires%}
+			<div>
+				{{umpire.lastname|upper}} {{umpire.firstname}}<br />
+				{{umpire.phone}}<br />
+				{{umpire.mobilePhone}}<br />
+				{{umpire.email}}<br />
+				{{umpire.address}}<br />
+				{{umpire.zipCode}}<br />
+				{{umpire.city}}<br />
+			</div>
+		{%else%}
+			<div>No clubs !</div>
+		{%endfor%}
+{%endblock%}

@@ -1,0 +1,64 @@
+<?php
+
+namespace YB\TournamentBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TournamentCategory
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class TournamentCategory {
+	
+	// Type d'épreuve
+	const EVENT_SM = "SM";
+	const EVENT_SD = "SD";
+	const EVENT_DM = "DM";
+	const EVENT_DD = "DD";
+	const EVENT_DX = "DX";
+	
+	// Catégorie
+	const CAT_910 = "910";
+	const CAT_1112 = "1112";
+	const CAT_1314 = "1314";
+	const CAT_1516 = "1516";
+	const CAT_1718 = "1718";
+	const CAT_SENIOR = "SENIOR";
+	const CAT_SENIOR35 = "SENIOR35";
+	const CAT_SENIOR45 = "SENIOR45";
+	const CAT_SENIOR55 = "SENIOR55";
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+
+	/**
+	 * @var YB\TournamentBundle\Entity\Tournament
+	 *
+	 * @ORM\ManyToOne(targetEntity="YB\TournamentBundle\Entity\Tournament", inversedBy="tournamentCategories", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=false)
+	 */
+	private $tournament;
+
+	/**
+	 * @var enum
+	 * 
+	 * @ORM\Column(name="category", type="enumTournamentCategoryType")
+	 */
+	private $category;
+	
+	/**
+	 * @var enum
+	 * 
+	 * @ORM\Column(name="type", type="enumTournamentEventType")
+	 */
+	private $event;
+
+}

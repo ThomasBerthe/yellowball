@@ -1,0 +1,7 @@
+parameters:
+#    yb_tournament.example.class: YB\TournamentBundle\Example
+
+services:
+#    yb_tournament.example:
+#        class: %yb_tournament.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

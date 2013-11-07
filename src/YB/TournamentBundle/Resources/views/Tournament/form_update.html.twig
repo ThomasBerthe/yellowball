@@ -1,0 +1,11 @@
+{%extends "YBTournamentBundle::layout.html.twig" %}
+
+{%block body%}
+	<h2>Modification du tournoi</h2>
+
+	{%include "YBTournamentBundle:Tournament:form_create_update.html.twig"%}
+	
+	<p>
+		<a href="{{path('Home')}}" class="btn"><i class="icon-chevron-left"></i> Retour à la liste</a>
+	</p>
+{%endblock%}
