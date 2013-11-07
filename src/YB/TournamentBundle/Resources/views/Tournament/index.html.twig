@@ -1,12 +1,14 @@
 {%extends "YBTournamentBundle::layout.html.twig" %}
 
 {%block body%}
-	<h2>Liste des tournois <a class="btn btn-primary" href="{{path('AddTournament')}}">Ajouter un tournoi</a></h2>
-	
+	<h2>Liste des tournois {% if is_granted('ROLE_ADMIN') %}<a class="btn btn-primary" href="{{path('AddTournament')}}">Ajouter un tournoi</a>{% endif %}</h2>
+
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
-				<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+				{% if is_granted('ROLE_ADMIN') %}
+					<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+				{% endif %}
 				<th>Nom</th>
 				<th>Dates</th>
 				<th>Epreuves</th>
@@ -16,10 +18,12 @@
 		<tbody>
 			{%for tournament in tournaments%}
 				<tr>
-					<td>
-						<a title="edit" href=""><i class="icon-edit"></i></a>
-						<a title="delete" href=""><i class="icon-trash"></i></a>
-					</td>
+					{% if is_granted('ROLE_ADMIN') %}
+						<td>
+							<a title="edit" href=""><i class="icon-edit"></i></a>
+							<a title="delete" href=""><i class="icon-trash"></i></a>
+						</td>
+					{% endif %}
 					<td>{{tournament.club.name}}</td>
 					<td>{{tournament.beginDate|date('d/m/Y') }} au {{tournament.endDate|date('d/m/Y') }}</td>
 					<td>

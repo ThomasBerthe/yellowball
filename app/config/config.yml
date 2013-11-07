@@ -53,7 +53,9 @@ doctrine:
           enumTournamentEventCategory: YB\TournamentBundle\Entity\Type\EnumTournamentEventCategory
           enumTournamentEventType: YB\TournamentBundle\Entity\Type\EnumTournamentEventType
           enumTournamentEventLevel: YB\TournamentBundle\Entity\Type\EnumTournamentEventLevel
-          
+        mapping_types:
+            enum: string
+
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true

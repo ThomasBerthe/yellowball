@@ -2,3 +2,13 @@ yb_tournament:
     resource: "@YBTournamentBundle/Resources/config/routing.yml"
     prefix:   /
 
+login:
+    pattern:   /login
+    defaults:  { _controller: YBUserBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+

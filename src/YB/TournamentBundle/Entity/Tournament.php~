@@ -72,4 +72,193 @@ class Tournament
      */
     private $tournamentEvents;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tournamentEvents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set beginDate
+     *
+     * @param \DateTime $beginDate
+     * @return Tournament
+     */
+    public function setBeginDate($beginDate)
+    {
+        $this->beginDate = $beginDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get beginDate
+     *
+     * @return \DateTime 
+     */
+    public function getBeginDate()
+    {
+        return $this->beginDate;
+    }
+
+    /**
+     * Set endDate
+     *
+     * @param \DateTime $endDate
+     * @return Tournament
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get endDate
+     *
+     * @return \DateTime 
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * Set prizes
+     *
+     * @param string $prizes
+     * @return Tournament
+     */
+    public function setPrizes($prizes)
+    {
+        $this->prizes = $prizes;
+    
+        return $this;
+    }
+
+    /**
+     * Get prizes
+     *
+     * @return string 
+     */
+    public function getPrizes()
+    {
+        return $this->prizes;
+    }
+
+    /**
+     * Set paymentInformation
+     *
+     * @param string $paymentInformation
+     * @return Tournament
+     */
+    public function setPaymentInformation($paymentInformation)
+    {
+        $this->paymentInformation = $paymentInformation;
+    
+        return $this;
+    }
+
+    /**
+     * Get paymentInformation
+     *
+     * @return string 
+     */
+    public function getPaymentInformation()
+    {
+        return $this->paymentInformation;
+    }
+
+    /**
+     * Set club
+     *
+     * @param \YB\TournamentBundle\Entity\Club $club
+     * @return Tournament
+     */
+    public function setClub(\YB\TournamentBundle\Entity\Club $club)
+    {
+        $this->club = $club;
+    
+        return $this;
+    }
+
+    /**
+     * Get club
+     *
+     * @return \YB\TournamentBundle\Entity\Club 
+     */
+    public function getClub()
+    {
+        return $this->club;
+    }
+
+    /**
+     * Set umpire
+     *
+     * @param \YB\TournamentBundle\Entity\Umpire $umpire
+     * @return Tournament
+     */
+    public function setUmpire(\YB\TournamentBundle\Entity\Umpire $umpire = null)
+    {
+        $this->umpire = $umpire;
+    
+        return $this;
+    }
+
+    /**
+     * Get umpire
+     *
+     * @return \YB\TournamentBundle\Entity\Umpire 
+     */
+    public function getUmpire()
+    {
+        return $this->umpire;
+    }
+
+    /**
+     * Add tournamentEvents
+     *
+     * @param \YB\TournamentBundle\Entity\TournamentEvent $tournamentEvent
+     * @return Tournament
+     */
+    public function addTournamentEvent(\YB\TournamentBundle\Entity\TournamentEvent $tournamentEvent)
+    {
+        $tournamentEvent->setTournament($this);
+		$this->tournamentEvents[] = $tournamentEvent;
+    
+        return $this;
+    }
+
+    /**
+     * Remove tournamentEvents
+     *
+     * @param \YB\TournamentBundle\Entity\TournamentEvent $tournamentEvent
+     */
+    public function removeTournamentEvent(\YB\TournamentBundle\Entity\TournamentEvent $tournamentEvent)
+    {
+        $this->tournamentEvents->removeElement($tournamentEvent);
+    }
+
+    /**
+     * Get tournamentEvents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTournamentEvents()
+    {
+        return $this->tournamentEvents;
+    }
 }

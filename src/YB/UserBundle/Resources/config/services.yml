@@ -1,0 +1,7 @@
+parameters:
+#    yb_user.example.class: YB\UserBundle\Example
+
+services:
+#    yb_user.example:
+#        class: %yb_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
